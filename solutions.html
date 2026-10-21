@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tech Solutions - CivicPulse PH</title>
+<link rel="stylesheet" href="assets/bootstrap.min.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<nav class="cp-navbar">
+<div class="cp-nav-inner">
+<a class="cp-brand" href="index.html">CIVICPULSE <span>PH</span></a>
+<button class="cp-menu-toggle" type="button" aria-label="Toggle navigation" onclick="document.querySelector('.cp-nav-links').classList.toggle('cp-nav-open')">☰</button>
+<ul class="cp-nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="background.html">Issue Background</a></li>
+<li><a href="solutions.html">Tech Solutions</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="feedback.html">Get Involved</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="team.html">Meet the Team</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul></div></nav>
+<main>
+<div class="solutions-page">
+
+    <section class="solutions-hero">
+        <p class="solutions-eyebrow">SCIENCE, TECHNOLOGY AND SOCIETY</p>
+        <h1>Technology for a More Informed Society</h1>
+        <p>
+            Discover how technology can help address political turbulence
+            through fact-checking, reliable information, media literacy,
+            and responsible public participation.
+        </p>
+    </section>
+
+    <section class="solutions-content">
+        <h2>Explore Our Technology Solutions</h2>
+        <p class="solutions-description">
+            Select a card to learn more about each solution.
+        </p>
+
+        <div class="solutions-grid">
+
+            <button type="button" class="solution-card"
+                    data-solution="fact">
+                <span class="solution-icon">✓</span>
+                <h3>Fact-Checking Tools</h3>
+                <p>Learn how to check political claims and identify misleading information.</p>
+                <span class="solution-link">Learn More →</span>
+            </button>
+
+            <button type="button" class="solution-card"
+                    data-solution="reliable">
+                <span class="solution-icon">◎</span>
+                <h3>Reliable Information Access</h3>
+                <p>Find trustworthy information from official election sources.</p>
+                <span class="solution-link">Learn More →</span>
+            </button>
+
+            <button type="button" class="solution-card"
+                    data-solution="literacy">
+                <span class="solution-icon">▤</span>
+                <h3>Digital and Media Literacy</h3>
+                <p>Develop skills to evaluate online content before believing or sharing it.</p>
+                <span class="solution-link">Learn More →</span>
+            </button>
+
+            <button type="button" class="solution-card"
+                    data-solution="participation">
+                <span class="solution-icon">👥</span>
+                <h3>Public Participation</h3>
+                <p>Discover how informed citizens can participate in their communities.</p>
+                <span class="solution-link">Learn More →</span>
+            </button>
+
+        </div>
+
+        <section class="solution-feature">
+            <h2>Our Proposed Initiative: CivicPulse PH</h2>
+            <p>
+                CivicPulse PH promotes responsible digital citizenship through
+                educational content, useful resources, and interactive quizzes.
+                It encourages students and citizens to think critically before
+                accepting or sharing political information online.
+            </p>
+        </section>
+
+        <section class="solution-warning">
+            <h2>Technology Also Has Risks</h2>
+            <p>
+                Social media can spread misinformation quickly. Technology
+                works best when combined with critical thinking, ethical
+                behavior, privacy awareness, and accountability.
+            </p>
+        </section>
+
+        <div class="solutions-bottom">
+            <a href="quiz.html" class="solution-button">
+                Take the CivicPulse Quiz →
+            </a>
+            <a href="resources.html"
+               class="solution-button secondary">
+                View More Resources →
+            </a>
+        </div>
+    </section>
+</div>
+
+<!-- REUSABLE MODAL -->
+<div id="solutionModal" class="solution-modal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="modalTitle" aria-hidden="true">
+
+    <div class="solution-modal-content">
+        <button type="button" class="modal-close"
+                id="modalClose" aria-label="Close popup">
+            &times;
+        </button>
+
+        <p class="solutions-eyebrow">CIVICPULSE PH SOLUTION</p>
+        <h2 id="modalTitle">Solution Title</h2>
+        <p id="modalDescription"></p>
+
+        <div class="modal-note">
+            <strong>Why it matters</strong>
+            <p id="modalImportance"></p>
+        </div>
+
+        <a id="modalResource" class="solution-button"
+           href="https://facts.gov.ph/"
+           target="_blank" rel="noopener noreferrer">
+            Explore Resource →
+        </a>
+    </div>
+</div>
+
+section scripts {
+<script>
+    (function () {
+        var modal = document.getElementById("solutionModal");
+        var closeButton = document.getElementById("modalClose");
+        var title = document.getElementById("modalTitle");
+        var description = document.getElementById("modalDescription");
+        var importance = document.getElementById("modalImportance");
+        var resource = document.getElementById("modalResource");
+        var previousFocus = null;
+
+        var solutions = {
+            fact: {
+                title: "Fact-Checking Tools",
+                description: "Fact-checking means examining a claim and comparing it with credible evidence before accepting or sharing it. Check the original source, date, context, and supporting evidence.",
+                importance: "It can help people recognize misleading political claims and make decisions based on evidence.",
+                button: "Explore FACTS.gov.ph →",
+                url: "https://facts.gov.ph/"
+            },
+            reliable: {
+                title: "Reliable Information Access",
+                description: "Look for announcements, election guidance, and official information from trusted institutions. Compare important claims with independent reporting and other credible sources.",
+                importance: "Reliable information helps citizens understand public issues and make better-informed decisions.",
+                button: "Visit COMELEC →",
+                url: "https://www.comelec.gov.ph/"
+            },
+            literacy: {
+                title: "Digital and Media Literacy",
+                description: "Media literacy helps people evaluate who created a message, what evidence supports it, why it was published, and whether images or headlines may be misleading.",
+                importance: "These skills help students and communities navigate social media more carefully and responsibly.",
+                button: "Explore DepEd Learning Resources →",
+                url: "https://lrmds.deped.gov.ph/"
+            },
+            participation: {
+                title: "Public Participation",
+                description: "People can contribute to their communities by learning about public issues, joining respectful discussions, attending community activities, and using appropriate official channels to share concerns.",
+                importance: "Informed and respectful participation can support accountability, cooperation, and democratic decision-making.",
+                button: "Explore Civic Information →",
+                url: "https://facts.gov.ph/"
+            }
+        };
+
+        function openModal(key) {
+            var item = solutions[key];
+            if (!item) return;
+
+            previousFocus = document.activeElement;
+            title.textContent = item.title;
+            description.textContent = item.description;
+            importance.textContent = item.importance;
+            resource.textContent = item.button;
+            resource.href = item.url;
+
+            modal.classList.add("is-open");
+            modal.setAttribute("aria-hidden", "false");
+            document.body.classList.add("modal-open");
+            closeButton.focus();
+        }
+
+        function closeModal() {
+            modal.classList.remove("is-open");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("modal-open");
+
+            if (previousFocus) {
+                previousFocus.focus();
+            }
+        }
+
+        document.querySelectorAll("[data-solution]").forEach(function (card) {
+            card.addEventListener("click", function () {
+                openModal(card.getAttribute("data-solution"));
+            });
+        });
+
+        closeButton.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" &&
+                modal.classList.contains("is-open")) {
+                closeModal();
+            }
+        });
+    })();
+</script>
+</main>
+<script src="assets/jquery.min.js"></script>
+<script src="assets/bootstrap.bundle.min.js"></script>
+</body>
+</html>

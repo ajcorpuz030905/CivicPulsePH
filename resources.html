@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resources - CivicPulse PH</title>
+<link rel="stylesheet" href="assets/bootstrap.min.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<nav class="cp-navbar">
+<div class="cp-nav-inner">
+<a class="cp-brand" href="index.html">CIVICPULSE <span>PH</span></a>
+<button class="cp-menu-toggle" type="button" aria-label="Toggle navigation" onclick="document.querySelector('.cp-nav-links').classList.toggle('cp-nav-open')">☰</button>
+<ul class="cp-nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="background.html">Issue Background</a></li>
+<li><a href="solutions.html">Tech Solutions</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="feedback.html">Get Involved</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="team.html">Meet the Team</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul></div></nav>
+<main>
+<div class="resources-page">
+
+    <section class="resources-hero">
+        <p class="resources-eyebrow">CIVICPULSE PH RESOURCE CENTER</p>
+        <h1>Knowledge Is the First Step Toward Change</h1>
+        <p>
+            Explore resources that help you understand political turbulence,
+            evaluate online information, and become a more responsible digital citizen.
+        </p>
+    </section>
+
+    <section class="resources-content">
+
+        <h2>Explore Our Resources</h2>
+        <p class="resources-intro">
+            Select a resource card to learn what it offers and how it connects
+            to political turbulence in the Philippines.
+        </p>
+
+        <div class="resources-grid">
+
+            <button type="button" class="resource-card"
+                    data-resource="facts">
+                <span class="resource-icon">✓</span>
+                <h3>FACTS.gov.ph</h3>
+                <p>Explore fact-checking information and learn to examine claims carefully.</p>
+                <span class="resource-link">View Resource →</span>
+            </button>
+
+            <button type="button" class="resource-card"
+                    data-resource="comelec">
+                <span class="resource-icon">◎</span>
+                <h3>COMELEC</h3>
+                <p>Find official election information from the Commission on Elections.</p>
+                <span class="resource-link">View Resource →</span>
+            </button>
+
+            <button type="button" class="resource-card"
+                    data-resource="deped">
+                <span class="resource-icon">▤</span>
+                <h3>DepEd Learning Resources</h3>
+                <p>Explore educational materials that support learning and media awareness.</p>
+                <span class="resource-link">View Resource →</span>
+            </button>
+
+            <button type="button" class="resource-card"
+                    data-resource="reuters">
+                <span class="resource-icon">◉</span>
+                <h3>Digital News Research</h3>
+                <p>Learn about digital news, online information habits, and media challenges.</p>
+                <span class="resource-link">View Resource →</span>
+            </button>
+
+        </div>
+
+        <section class="resources-note">
+            <h2>How to Use These Resources</h2>
+            <ul>
+                <li>Check who published the information and when it was published.</li>
+                <li>Compare important claims with other credible sources.</li>
+                <li>Distinguish verified facts from opinions and unverified claims.</li>
+                <li>Think critically before sharing political content online.</li>
+            </ul>
+        </section>
+
+        <div class="resources-actions">
+            <a href="solutions.html"
+               class="resource-button">
+                Explore Technology Solutions →
+            </a>
+
+            <a href="quiz.html"
+               class="resource-button secondary">
+                Take the CivicPulse Quiz →
+            </a>
+        </div>
+
+    </section>
+</div>
+
+<!-- RESOURCE MODAL -->
+<div id="resourceModal" class="resource-modal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="resourceModalTitle" aria-hidden="true">
+
+    <div class="resource-modal-content">
+        <button type="button" id="resourceModalClose"
+                class="resource-modal-close"
+                aria-label="Close popup">
+            &times;
+        </button>
+
+        <p class="resources-eyebrow">RESOURCE DETAILS</p>
+        <h2 id="resourceModalTitle">Resource Title</h2>
+        <p id="resourceModalDescription"></p>
+
+        <div class="resource-modal-note">
+            <strong>Connection to Political Turbulence</strong>
+            <p id="resourceModalConnection"></p>
+        </div>
+
+        <a id="resourceModalLink"
+           class="resource-button"
+           href="https://facts.gov.ph/"
+           target="_blank"
+           rel="noopener noreferrer">
+            Visit Resource →
+        </a>
+    </div>
+</div>
+
+section scripts {
+    <script>
+        (function () {
+            var modal = document.getElementById("resourceModal");
+            var closeButton = document.getElementById("resourceModalClose");
+            var title = document.getElementById("resourceModalTitle");
+            var description = document.getElementById("resourceModalDescription");
+            var connection = document.getElementById("resourceModalConnection");
+            var link = document.getElementById("resourceModalLink");
+            var previousFocus = null;
+
+            var resourceData = {
+                facts: {
+                    title: "FACTS.gov.ph",
+                    description: "Explore this Philippine government fact-checking resource to find information and examine claims. Always check the original source and supporting evidence.",
+                    connection: "Checking political claims can help people avoid spreading misinformation that may increase confusion and division.",
+                    button: "Visit FACTS.gov.ph →",
+                    url: "https://facts.gov.ph/"
+                },
+                comelec: {
+                    title: "Commission on Elections",
+                    description: "The official COMELEC website provides election-related information, announcements, and guidance.",
+                    connection: "Access to official election information helps citizens understand electoral processes and make informed decisions.",
+                    button: "Visit COMELEC →",
+                    url: "https://www.comelec.gov.ph/"
+                },
+                deped: {
+                    title: "DepEd Learning Resources",
+                    description: "Explore the Department of Education's learning resource portal for educational materials. Search for relevant materials on media literacy and critical thinking.",
+                    connection: "Media literacy helps students evaluate online content instead of automatically believing or sharing political claims.",
+                    button: "Visit DepEd Resources →",
+                    url: "https://lrmds.deped.gov.ph/"
+                },
+                reuters: {
+                    title: "Reuters Institute Digital News Report",
+                    description: "Read research about digital news use, news platforms, and the challenges facing journalism. The report includes country-specific findings.",
+                    connection: "Research on news habits helps explain how people encounter political information and why source evaluation matters.",
+                    button: "Read the Digital News Report →",
+                    url: "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/philippines"
+                }
+            };
+
+            function openModal(key) {
+                var item = resourceData[key];
+                if (!item) return;
+
+                previousFocus = document.activeElement;
+                title.textContent = item.title;
+                description.textContent = item.description;
+                connection.textContent = item.connection;
+                link.textContent = item.button;
+                link.href = item.url;
+
+                modal.classList.add("is-open");
+                modal.setAttribute("aria-hidden", "false");
+                document.body.classList.add("resource-modal-open");
+                closeButton.focus();
+            }
+
+            function closeModal() {
+                modal.classList.remove("is-open");
+                modal.setAttribute("aria-hidden", "true");
+                document.body.classList.remove("resource-modal-open");
+
+                if (previousFocus) {
+                    previousFocus.focus();
+                }
+            }
+
+            document.querySelectorAll("[data-resource]").forEach(function (card) {
+                card.addEventListener("click", function () {
+                    openModal(card.getAttribute("data-resource"));
+                });
+            });
+
+            closeButton.addEventListener("click", closeModal);
+
+            modal.addEventListener("click", function (event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape" &&
+                    modal.classList.contains("is-open")) {
+                    closeModal();
+                }
+            });
+        })();
+    </script>
+</main>
+<script src="assets/jquery.min.js"></script>
+<script src="assets/bootstrap.bundle.min.js"></script>
+</body>
+</html>

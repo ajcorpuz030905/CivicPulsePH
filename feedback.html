@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Involved - CivicPulse PH</title>
+<link rel="stylesheet" href="assets/bootstrap.min.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<nav class="cp-navbar">
+<div class="cp-nav-inner">
+<a class="cp-brand" href="index.html">CIVICPULSE <span>PH</span></a>
+<button class="cp-menu-toggle" type="button" aria-label="Toggle navigation" onclick="document.querySelector('.cp-nav-links').classList.toggle('cp-nav-open')">☰</button>
+<ul class="cp-nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="background.html">Issue Background</a></li>
+<li><a href="solutions.html">Tech Solutions</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="feedback.html">Get Involved</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="team.html">Meet the Team</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul></div></nav>
+<main>
+<div class="feedback-page">
+
+    <section class="feedback-hero">
+        <p class="feedback-eyebrow">YOUR VOICE MATTERS</p>
+        <h1>Get Involved in Positive Change</h1>
+        <p>
+            Political turbulence affects communities in different ways.
+            Share your thoughts on how technology, education, and
+            responsible participation can help.
+        </p>
+    </section>
+
+    <section class="feedback-content">
+
+        <div class="feedback-intro">
+            <h2>Share Your Perspective</h2>
+            <p>
+                Your responses can help us reflect on political information,
+                digital citizenship, and ways to encourage constructive
+                conversations.
+            </p>
+        </div>
+
+        <div class="feedback-layout">
+
+            <div class="feedback-info">
+                <h2>Why Participate?</h2>
+
+                <div class="feedback-info-item">
+                    <h3>Think Critically</h3>
+                    <p>
+                        Consider how online information influences people's
+                        understanding of political issues.
+                    </p>
+                </div>
+
+                <div class="feedback-info-item">
+                    <h3>Promote Respect</h3>
+                    <p>
+                        Encourage conversations that consider evidence
+                        and respect different viewpoints.
+                    </p>
+                </div>
+
+                <div class="feedback-info-item">
+                    <h3>Support Awareness</h3>
+                    <p>
+                        Help promote responsible media use and informed
+                        participation in your community.
+                    </p>
+                </div>
+            </div>
+
+            <div class="feedback-form-card">
+                <h2>Feedback Form</h2>
+                <p class="feedback-form-description">
+                    Complete the fields below to share your perspective.
+                </p>
+
+                <form id="civicFeedbackForm">
+
+                    <div class="feedback-field">
+                        <label for="feedbackTopic">
+                            Which topic interests you most?
+                        </label>
+
+                        <select id="feedbackTopic" required>
+                            <option value="">Select a topic</option>
+                            <option value="Misinformation">Misinformation</option>
+                            <option value="Media Literacy">Media Literacy</option>
+                            <option value="Reliable Information">Reliable Information</option>
+                            <option value="Public Participation">Public Participation</option>
+                            <option value="Technology and Politics">Technology and Politics</option>
+                        </select>
+                    </div>
+
+                    <div class="feedback-field">
+                        <label for="feedbackRating">
+                            How useful is CivicPulse PH?
+                        </label>
+
+                        <select id="feedbackRating" required>
+                            <option value="">Choose a rating</option>
+                            <option value="5">5 - Very useful</option>
+                            <option value="4">4 - Useful</option>
+                            <option value="3">3 - Somewhat useful</option>
+                            <option value="2">2 - Slightly useful</option>
+                            <option value="1">1 - Not useful yet</option>
+                        </select>
+                    </div>
+
+                    <div class="feedback-field">
+                        <label for="feedbackMessage">
+                            Your comments or suggestions
+                        </label>
+
+                        <textarea id="feedbackMessage"
+                                  rows="5"
+                                  maxlength="1000"
+                                  placeholder="What can students or communities do to respond to political turbulence?"
+                                  required></textarea>
+                    </div>
+
+                    <button type="submit" class="feedback-submit">
+                        Submit Feedback →
+                    </button>
+
+                    <p class="feedback-disclaimer">
+                        Demonstration only: this form does not transmit
+                        or permanently save your answers.
+                    </p>
+
+                    <div id="feedbackSuccess"
+                         class="feedback-success"
+                         role="status"
+                         aria-live="polite"
+                         hidden>
+                        <h3>Thank you for participating!</h3>
+                        <p>
+                            Your feedback has been checked in this demo.
+                            It has not been sent or saved to a database.
+                        </p>
+                        <button type="button" id="feedbackReset"
+                                class="feedback-reset">
+                            Write Another Response
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+        <div class="feedback-bottom">
+            <a href="solutions.html"
+               class="feedback-button">
+                Explore Technology Solutions →
+            </a>
+
+            <a href="index.html"
+               class="feedback-button secondary">
+                Back to Home
+            </a>
+        </div>
+
+    </section>
+</div>
+
+section scripts {
+    <script>
+        (function () {
+            var form = document.getElementById("civicFeedbackForm");
+            var success = document.getElementById("feedbackSuccess");
+            var reset = document.getElementById("feedbackReset");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                success.hidden = false;
+                success.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest"
+                });
+            });
+
+            reset.addEventListener("click", function () {
+                form.reset();
+                success.hidden = true;
+                document.getElementById("feedbackTopic").focus();
+            });
+        })();
+    </script>
+</main>
+<script src="assets/jquery.min.js"></script>
+<script src="assets/bootstrap.bundle.min.js"></script>
+</body>
+</html>
